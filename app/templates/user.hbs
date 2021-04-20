@@ -1,3 +1,15 @@
-{{this.model}}
+{{#if this.model}}
+ <div>user_id: {{this.model.id}}</div>
+ <div>Name: {{this.model.name}}</div>
+ <div>Comments:</div>
+    {{#each this.model.comments as |comment|}}
+        <div>{{comment.created_at}}: {{comment.comment}}</div>
+    {{/each}}
+
+
+
+{{/if}}
+
+
 
 {{outlet}}
