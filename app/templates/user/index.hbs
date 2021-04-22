@@ -1,8 +1,7 @@
-User Index
+<h2>User Index</h2>
 
 {{#each model as |user|}}
-    <div>{{user.name}}</div>   
+    <div>{{user.id}}: {{#link-to "user.show" user}} {{user.name}}  {{/link-to}} </div> 
 {{/each}}
-
 
 {{outlet}}

@@ -1,11 +1,13 @@
 {{#if this.model}}
  <div>user_id: {{this.model.id}}</div>
  <div>Name: {{this.model.name}}</div>
+
+{{input id="new-comment" type="textbox" placeholder="Say something.." key-press='submitForm'}}
+
  <div>Comments:</div>
-    {{#each this.model.comments as |comment|}}
+    {{#each this.model.comments as |comment|}}    
         <div>{{comment.created_at}}: {{comment.comment}}</div>
     {{/each}}
-
 
 
 {{/if}}
