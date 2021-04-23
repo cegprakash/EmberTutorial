@@ -1,22 +1,25 @@
-export default Ember.Controller.extend({
+import Controller from '@ember/controller'; 
+import $ from 'jquery';
+
+export default Controller.extend({
     actions: {
         submitForm(value, event) {
         if (event.keyCode === 13) {
-            console.log('postComment called');
-
-            Ember.$.ajax({
-                url: 'http://localhost:3000/api/v1/comments',
+            $.ajax({
+                url: `http://localhost:3000/api/v1/users/3/comments`,
                 type: "POST",
                 data: {
-                    "from_user_id": 2,
-                    "to_user_id": 3,
-                    "comment": value,
+                    "user":{
+                        "comment": {
+                            "from_user_id": 2,
+                            "comment": value,
+                        }
+                    }
                 }                
-            }).then(function(resp){
+            }).then(function(){
                 window.location.reload(true);
-            }).catch(function(error){
-            });            
-
+            }).catch(function(){
+            });
         }
         }
     }

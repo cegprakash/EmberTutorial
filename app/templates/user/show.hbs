@@ -1,17 +1,37 @@
 {{#if this.model}}
- <div>user_id: {{this.model.id}}</div>
- <div>Name: {{this.model.name}}</div>
-
-{{input id="new-comment" type="textbox" placeholder="Say something.." key-press='submitForm' }}
-
- <div>Comments:</div>
-    {{#each this.model.comments as |comment|}}    
-        <div>{{comment.created_at}}: {{comment.comment}}</div>
-    {{/each}}
-
-
+  <div style="vertical-align: bottom">
+    <div style="float:left;text-align:center">
+      <div>
+        <div >
+          <img src="https://img.icons8.com/bubbles/2x/user-male.png" alt="User Image"/>
+        </div>
+        <div>
+          <div>user_id: {{this.model.id}}</div>
+          <div>Name: {{this.model.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{input type="textbox" placeholder="Say something.." key-press="submitForm" }}
+  <div>
+    Comments:
+  </div>
+  {{#each this.model.comments as |comment|}}   
+    <tr>
+        <td>
+          <div>
+            <img height="50px" width="50px" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" alt="Commenter user"/>
+          </div>
+          <div>
+            Anand
+          </div>
+        </td>
+        <td>
+          <div>
+            &emsp;{{comment.comment}}  - ({{moment-from-now comment.created_at}})
+          </div>
+        </td>
+    </tr>
+  {{/each}}
 {{/if}}
-
-
-
 {{outlet}}
