@@ -1,9 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
-    attrs: {
+    attrs: {        
         comments_received: {
-            deserialize: 'records'
+            serialize: 'records',
+            deserialize: 'records'            
         }
     }
 });
